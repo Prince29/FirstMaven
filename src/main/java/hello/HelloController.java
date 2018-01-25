@@ -7,11 +7,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RestController
 public class HelloController {
     @RequestMapping("/me")
-    public String index(){
+    public String me(){
         return "(HelloController)this is me!";
     }
     @RequestMapping("/you")
-    public String user(){
+    public String you(){
         return "(HelloController)this is you!";
+    }
+    @RequestMapping("/us")
+    public String us(){
+        return "(HelloController)this is us!";
     }
 }
