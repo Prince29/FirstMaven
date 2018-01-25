@@ -1,7 +1,5 @@
 package hello;
 
-
-
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
 import java.net.URL;
@@ -28,13 +26,15 @@ public class HelloControllerIT {
 
     @Before
     public void setUp() throws Exception{
-        this.base=new URL("http://localhost:"+port+"/");
+        this.base=new URL("http://localhost:"+port+"/test/index/test");//注意application.properties配置文件里的相关配置
+        System.out.println("base:"+this.base.toString());
     }
 
     @Test
     public void getHello() throws Exception{
         ResponseEntity<String> response=template.getForEntity(base.toString(),
                 String.class);
-        assertThat(response.getBody(),equalTo("(HelloController)Greetings from Spring Boot!"));
+        System.out.println("response:"+response.getBody());
+        assertThat(response.getBody(),equalTo("(HelloController)this is test!"));
     }
 }
